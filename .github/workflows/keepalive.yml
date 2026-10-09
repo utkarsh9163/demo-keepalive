@@ -1,14 +1,14 @@
 name: Keep demos awake
 
 # Free hosting plans (e.g. Render) sleep after ~15 minutes without traffic.
-# This visits every URL in urls.txt every 10 minutes from 8:00 AM to 1:50 AM India time (IST),
-# and lets demos sleep from about 2 AM to 8 AM to save free-plan hours.
+# This visits every URL in urls.txt every 10 minutes from 10:00 AM to 11:50 PM India time (IST),
+# and lets demos sleep from about midnight to 10 AM to save free-plan hours.
 # GitHub cron is in UTC (IST = UTC + 5:30). Scheduled runs can start a few minutes late.
 on:
   schedule:
-    - cron: "30,40,50 2 * * *" # 8:00-8:20 AM IST
-    - cron: "*/10 3-19 * * *" # 8:30 AM-1:20 AM IST
-    - cron: "0,10,20 20 * * *" # 1:30-1:50 AM IST
+    - cron: "30,40,50 4 * * *" # 10:00-10:20 AM IST
+    - cron: "*/10 5-17 * * *" # 10:30 AM-11:20 PM IST
+    - cron: "0,10,20 18 * * *" # 11:30-11:50 PM IST
   workflow_dispatch:
   push:
     paths: [urls.txt]
