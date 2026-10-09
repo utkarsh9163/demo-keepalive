@@ -1,12 +1,12 @@
 # demo-keepalive
 
-Keeps client demo projects on free hosting plans awake by visiting them every 14 minutes
+Keeps client demo projects on free hosting plans awake by visiting them every 10 minutes
 (GitHub Actions schedule). Free plans like **Render** put services to sleep after ~15 minutes
 without traffic, so the first visitor has to wait 30–60 seconds.
 
 ## Add a project
 Add its health-check URL as a new line in [`urls.txt`](urls.txt) and commit. The workflow runs
-immediately on that change, then every 14 minutes.
+immediately on that change, then every 10 minutes.
 
 | Project | URL |
 |---|---|
@@ -23,7 +23,6 @@ bash ping.sh urls.txt
   awake 24/7. Keeping several Render services awake on one account will use up those hours.
 - GitHub pauses scheduled workflows in a public repo after 60 days without commits. Any commit
   (e.g. adding a project) resets that.
-- GitHub often starts scheduled runs a few minutes late. With Render sleeping after 15 minutes,
-  a late run can occasionally let a service doze off. If that happens, change the cron in
-  `.github/workflows/keepalive.yml` to `*/10 * * * *`.
+- Runs every 10 minutes (not 14) because GitHub often starts scheduled runs a few minutes late,
+  and Render sleeps after 15 minutes. The 5-minute margin covers those delays.
 - Pause everything: Actions → "Keep demos awake" → ⋯ → Disable workflow.
