@@ -1,17 +1,16 @@
 name: Keep demos awake
 
 # Free hosting plans (e.g. Render) sleep after ~15 minutes without traffic.
-# This visits every URL in urls.txt every 10 minutes from 10:00 AM to 11:50 PM India time (IST),
-# and lets demos sleep from about midnight to 10 AM to save free-plan hours.
-# GitHub cron is in UTC (IST = UTC + 5:30). Scheduled runs can start a few minutes late.
+# Runs every 10 minutes, day and night; ping.sh decides per URL whether to ping now:
+#   - plain line            -> daily, 10:00 AM-11:59 PM India time (IST)
+#   - line with until=...   -> demo window: around the clock until that IST time, then never
+# Scheduled runs can start a few minutes late, hence 10 minutes (Render sleeps after 15).
 on:
   schedule:
-    - cron: "30,40,50 4 * * *" # 10:00-10:20 AM IST
-    - cron: "*/10 5-17 * * *" # 10:30 AM-11:20 PM IST
-    - cron: "0,10,20 18 * * *" # 11:30-11:50 PM IST
+    - cron: "*/10 * * * *"
   workflow_dispatch:
   push:
-    paths: [urls.txt]
+    paths: [urls.txt, ping.sh]
 
 jobs:
   ping:
@@ -20,5 +19,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Ping every URL in urls.txt
+      - name: Ping URLs that are due
         run: bash ping.sh urls.txt

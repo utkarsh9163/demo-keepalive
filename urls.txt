@@ -1,5 +1,10 @@
-# One URL per line. Every URL is visited every 10 minutes so free hosts don't sleep.
-# Use a cheap endpoint (a health check), not a heavy page. Lines starting with # are ignored.
+# One URL per line (a cheap health check, not a heavy page). Lines starting with # are ignored.
+#
+#   https://example.com/health                           daily: pinged 10:00 AM-11:59 PM IST
+#   https://example.com/health  until=2026-10-11 20:00   demo window: pinged day and night until
+#                                                        that IST time (YYYY-MM-DD HH:MM), then not
+#                                                        at all, so the service sleeps and stops
+#                                                        using free hours
 
-# KaRa By Anushree – API on Render (free)
-https://karabyanushree-api.onrender.com/health
+# KaRa By Anushree - API on Render (free). 12-hour demo window started 9 Oct 2026, 8:50 PM IST.
+https://karabyanushree-api.onrender.com/health  until=2026-10-10 08:50
