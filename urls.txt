@@ -1,0 +1,5 @@
+# One URL per line. Every URL is visited every 10 minutes so free hosts don't sleep.
+# Use a cheap endpoint (a health check), not a heavy page. Lines starting with # are ignored.
+
+# KaRa By Anushree – API on Render (free)
+https://karabyanushree-api.onrender.com/health

@@ -1,0 +1,20 @@
+name: Keep demos awake
+
+# Free hosting plans (e.g. Render) sleep after ~15 minutes without traffic.
+# This visits every URL in urls.txt every 10 minutes. Scheduled runs can start a few minutes late.
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+  push:
+    paths: [urls.txt]
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ping every URL in urls.txt
+        run: bash ping.sh urls.txt
