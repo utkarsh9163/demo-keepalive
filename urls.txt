@@ -9,5 +9,5 @@
 # KaRa By Anushree - API on Render (free). 12-hour demo window started 9 Oct 2026, 8:50 PM IST.
 https://karabyanushree-api.onrender.com/health  until=2026-10-10 08:50
 
-# House of HK - API on Render (free). 24-hour demo window started 10 Oct 2026, 11:10 AM IST.
-https://houseofhk-api.onrender.com/health  until=2026-10-11 11:10
+# House of HK - API on Render (free). 48-hour demo window started 10 Oct 2026, 11:11 AM IST.
+https://houseofhk-api.onrender.com/health  until=2026-10-12 11:11
