@@ -11,3 +11,6 @@ https://karabyanushree-api.onrender.com/health  until=2026-10-10 08:50
 
 # House of HK - API on Render (free). 48-hour demo window started 10 Oct 2026, 11:11 AM IST.
 https://houseofhk-api.onrender.com/health  until=2026-10-12 11:11
+
+# Devira Naturals - API on Render (free). 24-hour demo window started 10 Oct 2026, 12:21 PM IST.
+https://devira-api.onrender.com/health  until=2026-10-11 12:21
